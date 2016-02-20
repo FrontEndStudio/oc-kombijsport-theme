@@ -2,6 +2,7 @@ assets/js/*.*
 assets/js/vendor/*.*
 assets/src/js/plugins/*.*
 assets/src/js/vendor/*.*
+assets/src/js/vendor/modernizr.js 
 assets/css/*.css
 bower_components
 node_modules
