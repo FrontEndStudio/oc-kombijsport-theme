@@ -2,7 +2,7 @@ assets/js/*.*
 assets/js/vendor/*.*
 assets/src/js/plugins/*.*
 assets/src/js/vendor/*.*
-css/*.css
+assets/css/*.css
 bower_components
 node_modules
 
