@@ -1,0 +1,114 @@
+////////////////////////////////////////////////////////////////////////////////
+// _variables
+///////////////////////////////////////////////////////////////////////////////
+
+$base-font-size: 16px;
+$guss-rem-baseline: $base-font-size;
+$base-line-height: 1.5;
+
+$font-color: #333;
+
+$background-color: #FFFFFF;
+
+$stripe-color: #006dd5;
+
+$icon-color: #434343;
+$icon-hover-color: #006dd5;
+
+$header-color: #006dd5;
+$bg-hl-color: #f2f2f2;
+$bg-color: #e6e6e6;
+$bar-color: #959595;
+
+$link-color: #006dd5;
+$link-hover-color: #006dd5;
+$link-active-color: #006dd5;
+$link-visited-color: #006dd5;
+
+$selected-font-color: #333;
+$selected-background-color: #bfdaec !default;
+
+$list-left-margin: 2em;
+
+$base-font-family: unquote("Sans-Serif");
+
+$border-color: #cccccc;
+$gradient-light-color: #696969;
+$gradient-dark-color: #434343;
+
+$nav-default-color: mix($gradient-light-color, $gradient-dark-color);
+$nav-active-color: #006dd5;
+$nav-hover-color: #00426e;
+
+$nav-vertical-padding: 8px;
+$nav-horizontal-padding: 12px;
+
+/* ############################################################################
+* # rem
+* ############################################################################ */
+
+$guss-rem-baseline: $base-font-size;
+
+/* ############################################################################
+* # susy
+* ############################################################################ */
+
+// 1152 = 72em -> wide
+//  960 = 60em -> normal
+//  720 = 45em -> small
+//  480 = 30em -> mobile
+//  320 = 20em -> small_mobile
+
+$mq-debug: 0;
+
+$mq: (
+  'wide'          : '(min-width: 72em)',
+  'navigation'    : '(max-width: 57em)',
+  'normal'        : '(min-width: 45em) and (max-width: 72em)',
+  'small'         : '(max-width: 45em)',
+  'mobile'        : '(max-width: 30em)',
+  'small_mobile'  : '(max-width: 20em)',
+  'not_small'     : '(min-width: 45em)',
+  'small_only'    : '(min-width: 30em) and (max-width: 45em)',
+  'mobile_only'   : '(min-width: 20em) and (max-width: 30em)',
+  );
+
+  $mq-colors: (
+    'wide'          : 'yellow',
+    'navigation'    : 'blue',
+    'normal'        : 'orange',
+    'small'         : 'green',
+    'mobile'        : 'blue',
+    'small_mobile'  : 'purple',
+    'not_small'     : 'grey',
+    );
+
+    /* ############################################################################
+    * # susy
+    * ############################################################################ */
+
+    @import '../../bower_components/susy/sass/susy';
+
+    // math: fluid
+    // output: float,
+    // gutter-position: inside
+
+    $susy: (
+      columns: 12,
+      gutters: 1/4,
+      debug: (
+        //image: show-columns,
+        //color: blue,
+        //output: background
+        ),
+        global-box-sizing: border-box,
+        use-custom: (
+          rem: true
+          )
+          );
+
+          @include border-box-sizing;
+
+          //
+          // EOF
+          //

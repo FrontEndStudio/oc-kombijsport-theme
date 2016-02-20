@@ -1,0 +1,47 @@
+///////////////////////////////////////////////////////////////////////////////
+// media query definitions
+///////////////////////////////////////////////////////////////////////////////
+
+@mixin mq-debug($name) {
+
+  @at-root &::before {
+    content: ""+ $name + "";
+
+    @if map-has-key($mq-colors, $name) {
+      background-color: #{map-get($mq-colors, $name)};
+      } @else {
+        background-color: red;
+      } 
+    }
+
+  }
+
+  @mixin respond-me($name, $push: false) {
+
+    @if map-has-key($mq, $name) {
+      @media #{map-get($mq, $name)} {
+
+        @if ($mq-debug == 1) {
+          @include mq-debug($name);
+        }
+
+        @content;
+      }
+    }
+    @else if $push != false {
+      $mq: map-merge($mq, ($name: $push)) !global;
+      @include respond-me($name) {
+        @content;
+      }
+    }
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$name}`. "
+      + "Please make sure it is defined in `$mq` map. "
+      + "Or pass the media query as a second parameter to add it to the map.";
+    }
+
+  }
+
+  //
+  // EOF
+  //

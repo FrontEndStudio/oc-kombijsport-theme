@@ -1,0 +1,98 @@
+///////////////////////////////////////////////////////////////////////////////
+// media
+///////////////////////////////////////////////////////////////////////////////
+
+@media print {
+
+  .content_left h1,
+  .headlines_small h2,
+  .headlines_small_no_hl h2,
+  .highlights_large .item h1,
+  .highlights_large a .item h1 {
+    color: black;
+    background-color: white;
+    width: 100%;
+  }
+  
+  .container {
+    display: block;
+    color: black;
+    background-color: white;
+    width: 100%;
+  }
+
+  // header
+  nav,
+  header,
+  .tab_pager,
+  nav.tab_pager,
+  .ticker-container,
+  .search,
+  .row--navigation,
+  .headlines_large {
+    display: none;
+  }
+
+  .tab_heading {
+    border: none;
+    background-color: white;
+  }
+
+  // footer
+  .socialmedia,
+  .credits,
+  .spacer,
+  .clear_me,
+  .slider-container,
+  .tab_pager {
+    display: none;
+  }
+
+  // content
+  .fb_iframe_widget
+  .fb-like
+  .fb-comments,
+  .pager {
+    display: none;
+  }
+
+  .inner {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .gallery_small,
+  .gallery_overview,
+  .headlines_small {
+    display: none;
+  }
+
+  .content_left, .content_right {
+    color: black;
+    background-color: white;
+  }
+
+  .tab_content, .content, .content_full .block, .row--footer, .vcard, .fn, .org, .addr, ol, ul, li {
+    color: black;
+    background-color: white;
+    width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: black;
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  table, td, th, td {
+  }
+
+}
+
+//
+// EOF
+//

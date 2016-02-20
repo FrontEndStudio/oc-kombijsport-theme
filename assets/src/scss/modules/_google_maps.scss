@@ -1,0 +1,35 @@
+///////////////////////////////////////////////////////////////////////////////
+// google_maps
+///////////////////////////////////////////////////////////////////////////////
+
+.google_map {
+  @include span(last 4 of 8);
+  padding-bottom: span(last 4 of 8);
+  
+  @include respond-me(mobile) {
+    @include span(8 of 8);
+    padding-bottom: span(8 of 8);
+  }
+
+}
+
+.google_map_wide {
+  @include span(8 of 8);
+  padding-bottom: span(4 of 8);
+}
+
+.google_panorama {
+  @include span(first 4 of 8);
+  padding-bottom: span(first 4 of 8);
+
+  @include respond-me(mobile) {
+    @include span(8 of 8);
+    padding-bottom: span(8 of 8);
+    margin-bottom: 1em;
+  }
+
+}
+
+//
+// EOF
+//

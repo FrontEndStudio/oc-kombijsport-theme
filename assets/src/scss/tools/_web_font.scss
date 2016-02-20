@@ -1,0 +1,44 @@
+///////////////////////////////////////////////////////////////////////////////
+// web_font
+///////////////////////////////////////////////////////////////////////////////
+
+/*
+
+@include web_font($style-name, $file, $family, $category);
+
+$style-name   : being the name of the font e.g. Helvetica
+$file         : meaning the file name, without the file extensions
+$family       : being the folder inside the fonts folder where the font files are
+$category     : is serif or sans-serif or monospace etc. as a fall back in CSS
+
+Here with real values:
+@include font-face('Ashbury', 'AshburyLig-webfont', 'Ashbury', 'serif');
+
+*/
+
+@mixin web_font($style-name, $file, $family, $category:"") {
+  $filepath: "fonts/" + $family + "/" + $file;
+
+  @font-face {
+    font-family: "#{$style-name}";
+    src: url($filepath + ".eot");
+    src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+  }
+
+  %#{$style-name} {
+    font: {
+      @if $category != "" {
+        family: "#{$style-name}", #{$category};
+        } @else {
+          family: "#{$style-name}";
+          weight: normal;
+          style: normal;
+        }
+      }
+    }
+
+
+  }
+
+  //
+  // EOF

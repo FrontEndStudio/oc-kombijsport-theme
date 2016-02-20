@@ -1,0 +1,453 @@
+///////////////////////////////////////////////////////////////////////////////
+// page
+///////////////////////////////////////////////////////////////////////////////
+
+/* ############################################################################
+* # body
+* ############################################################################ */
+
+$mq-debug: 0;
+
+@media all {
+  
+  body::before {
+
+    @if ($mq-debug == 1) {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: .6em;
+      font-weight: 900;
+      text-align: center;
+      z-index: 2000;
+      opacity: .3;
+    }
+
+  }
+
+}
+
+body {
+
+  margin: 0;
+  padding: 0;
+
+  color: $font-color;
+  font-family: $base-font-family;
+  font-weight: normal;
+  background-color: white;
+
+  @include respond-me(wide) {
+    margin: 0;
+  }
+
+  @include respond-me(normal) {
+    margin: 0;
+  }
+
+  @include respond-me(small) {
+    margin: 0;
+  }
+
+  @include respond-me(mobile) {
+    margin: 0;
+  }
+
+  @include respond-me(small_mobile) {
+    margin: 0;
+  }
+
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+$mq-debug: 0;
+
+/* ############################################################################
+* # content
+* ############################################################################ */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.outer {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+}
+
+.inner {
+
+  @include container(960px);
+
+  @include x-rem(padding, 16px 16px);
+  @include x-rem(margin, 32px auto 32px auto);
+
+  @include respond-me(small) {
+    margin: 0 auto 0 auto;
+  }
+
+  a,
+  a:visited,
+  a:active {
+    text-decoration: none;
+  }
+
+}
+
+.content_full {
+  @include span(12 of 12 last);
+  @include x-rem(font-size, 14px);
+}
+
+.content_left {
+
+  @include span(8 of 12);
+  @include x-rem(font-size, 14px);
+
+  @include respond-me(small) {
+    @include span(12 of 12);
+  }
+
+}
+
+.content_right {
+
+  @include span(4 of 12 last);
+  @include x-rem(font-size, 14px);
+
+  @include respond-me(small) {
+    @include span(12 of 12 last);
+    @include x-rem(margin-top, 16px);
+  }
+
+}
+
+/* ############################################################################
+* # header
+* ############################################################################ */
+
+header {
+  border-top: 0.5em solid $stripe-color;
+  margin: 0;
+  padding: 0;
+  @include x-rem(padding, 16px 0 0 0);
+  @include respond-me(small) {
+    @include x-rem(padding-top, 16px);
+  }
+
+  background-image: url('../img/background.gif');
+  background-repeat: both;
+  background-position: center middle;
+  background-color: #ecedef;
+
+}
+
+.banner {
+  @include container(960px);
+  padding: 0;
+  margin: 0 auto;
+}
+
+.logo {
+  @include span(2 of 12);
+  background-image: url('../img/svg/kombijsport-logo.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include x-rem(margin-bottom, 16px);
+
+  @include respond-me(small) {
+    @include span(12 of 12 last);
+    background-position: center center;
+    @include x-rem(margin-bottom, 16px);
+    margin-left: 0;
+  }
+
+  a {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 96px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+}
+
+.no-svg .logo {
+  background-image: url('../img/png/kombijsport-logo.png');
+}
+
+.ticker {
+  display: inline;
+  float: right;
+  width: span(10 of 12 last);
+  padding: 0;
+  @include x-rem(margin-top, 16px);
+
+  @include respond-me(small) {
+    width: span(12 of 12 last);
+    padding: 0;
+    margin-top: 0;
+  }
+
+  @include x-rem(font-size, 12px);
+  line-height: 1.125;
+
+  text-align: right;
+
+  @include respond-me(small) {
+    @include x-rem(font-size, 11px);
+    text-align: center;
+  }
+
+  .ticker--element {
+    display: inline;
+    float: right;
+    @include x-rem(padding, 0 16px);
+    width: 100%;
+
+  }
+
+}
+
+/* ############################################################################
+* # footer
+* ############################################################################ */
+
+footer {
+  display: table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-top: 0.25em solid $border-color;
+  background: mix($gradient-light-color, $gradient-dark-color);
+  background: linear-gradient($gradient-light-color, $gradient-dark-color);
+  font-family: "LucidaSansRegular", $base-font-family;
+  @include x-rem(font-size, 12px);
+  line-height: 1.5;
+  color: #FFFFFF;
+}
+
+.row--footer {
+
+  @include container(960px);
+  margin: 0 auto;
+  @include x-rem(padding, 16px 16px);
+
+  @include respond-me(mobile) {
+    @include x-rem(padding, 8px 16px);
+  }
+
+}
+
+.socialmedia {
+
+  @include span(6 of 12);
+
+  @include respond-me(mobile) {
+    @include span(12 of 12 last);
+    @include x-rem(margin-bottom, 8px);
+  }
+
+  ul {
+    display: inline;
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    @include respond-me(mobile) {
+      text-align: center;
+    }
+
+    list-style-type: none;
+
+    li {
+      display: inline;
+      float: left;
+      width: 100%;
+      margin: 0;
+      padding: 0.25em;
+      line-height: 1em;
+
+      a {
+        color: #FFFFFF;
+        text-decoration: none;
+        &:focus,
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.vcard {
+  @include span(6 of 12 last);
+  float: right;
+  text-align: right;
+
+  @include respond-me(mobile) {
+    @include span(12 of 12 last);
+    float: left;
+    text-align: center;
+    border-top: 1px solid $border-color;
+    @include x-rem(padding-top, 8px);
+
+  }
+
+}
+
+/* ############################################################################
+* # credits
+* ############################################################################ */
+
+.credits {
+
+  display: inline;
+  float: left;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: center;
+  color: $font-color;
+  @include x-rem(font-size, 12px);
+  @include x-rem(padding, 32px 0 32px 0);
+
+  @include respond-me(mobile) {
+    @include x-rem(font-size, 11px);
+    @include x-rem(padding, 12px 0);
+  }
+
+  border-bottom: 0.5em solid $stripe-color;
+
+  background-image: url('../img/bg_01.gif');
+  background-repeat: both;
+  background-position: center middle;
+  background-color: #ecedef;
+
+  a,
+  a:visited,
+  a:active {
+    color: $font-color;
+    text-decoration: none;
+  }
+
+  a:focus,
+  a:hover {
+    text-decoration: underline;
+  }
+
+}
+
+/* ############################################################################
+* # portrait
+* ############################################################################ */
+
+.portrait-container {
+  @include span(12 of 12);
+}
+
+.portrait {
+  @include span(6 of 12);
+
+  &:nth-child(2n+0) {
+    @include span(6 of 12 last);
+  }
+
+  @include respond-me(mobile) {
+    @include span(12 of 12);
+
+    &:nth-child(2n+0) {
+      @include span(12 of 12);
+    }
+
+  }
+
+  background-color: $bg-hl-color;
+  margin-bottom: gutter();
+
+}
+
+.full {
+  @include span(12 of 12);
+  background-color: $bg-hl-color;
+  margin-bottom: gutter();
+}
+
+.portrait--tag {
+  @include span(6 of 6 last);
+  @include x-rem(padding, 6px 0);
+
+  @include respond-me(mobile) {
+    @include span(12 of 12);
+  }
+
+}
+
+.portrait--name {
+  display: inline;
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-family: "LucidaSansRegular", $base-font-family;
+  color: $header-color;
+  @include x-rem(font-size, 15px);
+  line-height: 1.25;
+}
+
+.portrait--function {
+  display: inline;
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-family: "LucidaSansRegular", $base-font-family;
+}
+
+.portrait--image {
+  @include span(6 of 6 last);
+
+  @include respond-me(mobile) {
+    @include span(12 of 12);
+  }
+
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 137px;
+  }
+}
+
+/* ############################################################################
+* # verslagen / uitslagen
+* ############################################################################ */
+
+.uitslagen {
+  display: inline;
+  float: left;
+  width: 100%;
+  @include x-rem(padding, 8px);
+  @include x-rem(font-size, 12px);
+  background-color: $bg-color;
+}
+
+//
+// EOF
+//

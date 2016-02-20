@@ -1,0 +1,278 @@
+///////////////////////////////////////////////////////////////////////////////
+// tabs_pager
+///////////////////////////////////////////////////////////////////////////////
+
+nav.tab-pager {
+
+  display: inline;
+  float: left;
+
+  width: 100%;
+  @include x-rem(margin-top, 12px);
+  @include x-rem(margin-bottom, 24px);
+
+  ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline;
+      @include x-rem(margin, 0 4px 0 0);
+
+      &.active,
+      &:active {
+
+        a {
+          border-color: $border-color;
+          background: $nav-active-color;
+        }
+      }
+
+      &.active {
+        a {
+          color: #FFFFFF;
+        }
+      }
+
+      a {
+        @include x-rem(padding, 4px);
+        color: #FFFFFF;
+        @include x-rem(font-size, 12px);
+        border: 1px solid $border-color;
+        background: $nav-default-color;
+        @include x-rem(border-radius, 6px);
+        text-decoration: none;
+
+        &:hover {
+          border-color: $border-color;
+          background: $nav-hover-color;
+        }
+
+        &.active,
+        &:active {
+          border-color: $border-color;
+          background: $nav-active-color;
+        }
+
+        &.active {
+          color: #FFFFFF;
+        }
+
+
+      }
+
+      span {
+        display: inline;
+      }
+
+      @include respond-me(navigation) {
+        span {
+          display: none;
+        }
+      }
+
+      &.tab-pager--left {
+        a {
+          color: $link-color;
+          border: none;
+          background: none;
+          &:focus,
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &.tab-pager--left a:before {
+        @extend %icon;
+        @include icon-content(icon-left-bold);
+        @include x-rem(width, 24px);
+        @include x-rem(margin-right, 4px);
+        top: 0;
+        color: $icon-color;
+        text-decoration: none;
+        @include respond-me(mobile) {
+          display: none;
+        }
+      }
+
+      &.tab-pager--left a:hover:before {
+        color: $icon-hover-color;
+        text-decoration: none;
+      }
+
+      &.tab-pager--left {
+        @include x-rem(margin-right, 6px);
+      }
+
+      &.tab-pager--right {
+        a {
+          color: $link-color;
+          border: none;
+          background: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &.tab-pager--right a:after {
+        @extend %icon;
+        @include icon-content(icon-right-bold);
+        @include x-rem(width, 24px);
+        @include x-rem(margin-left, 4px);
+        color: $icon-color;
+        text-decoration: none;
+        @include respond-me(mobile) {
+          display: none;
+        }
+      }
+
+      &.tab-pager--right a:hover:after {
+        color: $icon-hover-color;
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// _tabs
+///////////////////////////////////////////////////////////////////////////////
+
+ul.tabs {
+
+  display: inline;
+  float: left;
+  width: 100%;
+  @include x-rem(height, 32px);
+  @include x-rem(margin, 32px 0 0 0);
+  padding: 0;
+  list-style: none;
+  border-left: 1px solid $border-color;
+
+  li {
+    display: inline;
+    float: left;
+    @include x-rem(height, 31px); // 32 - 1
+    padding: 0;
+    @include x-rem(margin, 0 1px);
+    @include x-rem(margin-bottom, -1px);
+    @include x-rem(font-size, 12px);
+    line-height: 2;
+    border: 1px solid $border-color;
+    border-left: 0;
+    overflow: hidden;
+    position: relative;
+
+    a {
+      text-decoration: none;
+      display: block;
+      @include x-rem(padding, 0 12px);
+      outline: none;
+    }
+
+  }
+}
+
+html ul.tabs li.active,
+html ul.tabs li.active a,
+html ul.tabs li.active a:hover {
+  color: $header-color;
+  background: none;
+  font-weight: bold;
+  border-bottom: 1px solid #ffffff;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// tab_content
+///////////////////////////////////////////////////////////////////////////////
+
+.tabs_container {
+  display: inline;
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+  @include x-rem(margin-bottom, 21px);
+}
+
+.tab_heading {
+  display: none;
+}
+
+.tab_content {
+  padding: 0;
+  margin: 0;
+}
+
+ul.tabs {
+  display: none;
+}
+
+.tabs_container {
+
+  .tab_heading:before {
+    @extend %icon;
+    @include icon-content(icon-up-open-big);
+    color: $icon-color;
+  }
+
+  .tab_heading:hover:before {
+    @extend %icon;
+    @include icon-content(icon-up-open-big);
+    color: $icon-hover-color;
+  }
+
+  .active {
+    background-color: $bg-hl-color;
+
+    a {
+    }
+
+  }
+
+  .active:before {
+    @extend %icon;
+    @include icon-content(icon-down-open-big);
+    color: $icon-color;
+  }
+
+  .active:hover:before {
+    @extend %icon;
+    @include icon-content(icon-down-open-big);
+    color: $icon-hover-color;
+  }
+
+}
+
+.tab_heading {
+  width: 100%;
+  display: block;
+  margin: 0;
+  @include x-rem(padding, 6px 6px);
+  @include x-rem(margin-bottom, 6px);
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  user-select: none;
+
+  border-top: 1px solid $border-color;
+  background-color: $bg-color;
+
+  &:hover {
+    background-color: $bg-hl-color;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+//
+// EOF
+//

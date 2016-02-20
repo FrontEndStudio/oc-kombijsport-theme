@@ -1,0 +1,95 @@
+///////////////////////////////////////////////////////////////////////////////
+// icon
+///////////////////////////////////////////////////////////////////////////////
+
+$default_web_font_alpha: 'fontello' !default;
+$default_web_font_margin: true !default;
+
+@include web_font('fontello', 'fontello', 'fontello');
+
+%icon {
+  display: inline-block;
+
+  width: 1em;
+
+  @if $default_web_font_margin == true {
+    margin-right: 0.25em;
+  }
+
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  speak: none;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  @extend %icon;
+}
+
+$icons: (
+  icon-twitter:  '\e800',
+  icon-rss:  '\e801',
+  icon-home: '\e802',
+  icon-menu: '\e803',
+  icon-left-bold:  '\e804',
+  icon-right-bold: '\e805',
+  icon-up-bold:  '\e806',
+  icon-picture:  '\e807',
+  icon-layout: '\e808',
+  icon-camera: '\e809',
+  icon-mail: '\e80a',
+  icon-search: '\e80b',
+  icon-star: '\e80c',
+  icon-star-empty: '\e80d',
+  icon-location: '\e80e',
+  icon-phone:  '\e80f',
+  icon-trophy: '\e810',
+  icon-megaphone:  '\e811',
+  icon-pencil: '\e812',
+  icon-traffic-cone: '\e813',
+  icon-down-bold:  '\e814',
+  icon-down-dir: '\e815',
+  icon-left-dir: '\e816',
+  icon-right-dir:  '\e817',
+  icon-up-dir: '\e818',
+  icon-down-open-big:  '\e819',
+  icon-up-open-big:  '\e81a',
+  icon-facebook: '\e81b'
+  );
+
+  @mixin icon-content($icon-content) {
+    $content: map-get($icons, $icon-content);
+    content: $content;
+  }
+
+  @mixin icon-before($icon-name, $default_web_font_margin: $margin) {
+    @extend %icon;
+    &:before {
+      content: map-get($icons, $icon-name);
+    }
+  }
+
+  @mixin icon-after($icon-name, $default_web_font_margin: $margin) {
+    @extend %icon;
+    &:after {
+      content: map-get($icons, $icon-name);
+    }
+  }
+
+  @each $icon_name, $icon_value in $icons {
+    .#{$icon_name}:before {
+      content: $icon_value;
+    }
+  }
+
+  //
+  // EOF
+  //

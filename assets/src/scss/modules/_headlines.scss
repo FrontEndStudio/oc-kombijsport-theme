@@ -1,0 +1,158 @@
+///////////////////////////////////////////////////////////////////////////////
+// headlines_large, headlines_small, headlines_small_no_hl
+///////////////////////////////////////////////////////////////////////////////
+
+.headlines_large {
+  @include span(6 of 12);
+
+  @include respond-me(small) {
+    @include span(12 of 12);
+  }
+}
+
+.headlines_small .less {
+  display: none;
+}
+
+.headlines_small,
+.headlines_small_no_hl {
+  width: 100%;
+
+  &:last-child {
+    margin-top: 1em;
+  }
+
+  @include respond-me(small) {
+    @include span (6 of 12);
+    &:last-child {
+      @include span (6 of 12 last);
+      margin-top: 0;
+    }
+  }
+
+  @include respond-me(mobile) {
+    @include span(12 of 12);
+    &:last-child {
+      @include span (12 of 12);
+      margin-top: 1em;
+    }
+  }
+
+}
+
+.headlines_small_no_hl {
+  @include respond-me(small) {
+    @include span(12 of 12);
+    &:last-child {
+      @include span (12 of 12);
+      margin-top: 1em;
+    }
+  }
+}
+
+.headlines_large,
+.headlines_small,
+.headlines_small_no_hl {
+
+  overflow: hidden;
+
+  ul {
+    width: 100%;
+    display: inline;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+    border-top: 1px solid $bg-color;
+  }
+
+}
+
+.headlines_large ul {
+
+  li {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    @include x-rem(padding, 6px 6px 6px 0px);
+    @include x-rem(font-size, 12px);
+    border-bottom: 1px solid $bg-color;
+
+    a {
+      display: inline-block;
+      position: relative;
+      @include x-rem(padding-left, 28px);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    i {
+      position: absolute;
+      color: $icon-color;
+      @include x-rem(padding-right, 8px);
+      @include x-rem(top, 6px);
+    }
+
+    &.selected,
+    &:hover {
+      background-color: $bg-hl-color;
+      transition: all 0.3s ease;
+
+      i {
+        color: $icon-hover-color;
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+
+}
+
+.headlines_small ul,
+.headlines_small_no_hl ul {
+
+  li {
+    display: inline;
+    float: left;
+    width: 100%;
+    margin: 0;
+    @include x-rem(padding, 4px 4px 4px 12px);
+    @include x-rem(font-size, 12px);
+    border-bottom: 1px solid $bg-color;
+
+    line-height: 1.25;
+
+    a {
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:focus,
+    &.selected,
+    &:hover {
+      background-color: $bg-hl-color;
+      transition: all 0.3s ease;
+    }
+
+  }
+
+}
+
+.headlines_small_no_hl ul {
+
+  .no_link {
+    color: $font-color;
+  }
+
+}
+
+//
+// EOF
+//

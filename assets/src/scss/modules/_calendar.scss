@@ -1,0 +1,117 @@
+///////////////////////////////////////////////////////////////////////////////
+// calendar
+///////////////////////////////////////////////////////////////////////////////
+
+.calendar-outer {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.calendar-inner {
+  display: inline;
+  float: left;
+  width: 100%;
+
+  .calendar--item {
+    @include span(4 of 12);
+
+    &:nth-child(3n+0) {
+      margin-right: 0;
+    }
+
+    @include respond-me(small) {
+      @include span(6 of 12);
+
+      &:nth-child(3n+0) {
+        margin-right: gutter();
+      }
+
+      &:nth-child(2n+0) {
+        margin-right: 0;
+      }
+    }
+
+    @include respond-me(mobile) {
+      @include span(12 of 12);
+
+      &:nth-child(3n+0) {
+        margin-right: 0;
+      }
+
+    }
+
+    margin-bottom: gutter();
+    @include x-rem(padding, 8px 0);
+    @include x-rem(padding-left, 8px);
+    background-color: $bg-color;
+    @include x-rem(font-size, 12px);
+  }
+
+  .calendar--date {
+    @include span(1 of 4);
+
+    @include respond-me(small) {
+      @include span(1 of 6);
+    }
+
+    @include respond-me(mobile) {
+      @include span(2 of 12);
+    }
+
+    text-align: center;
+    background-color: #FFFFFF;
+    font-family: "LucidaSansRegular", $base-font-family;
+    border-radius: 4px;
+    color: $header-color;
+    @include x-rem(padding, 8px 0);
+  }
+
+  .calendar--month {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .calendar--day {
+    display: inline-block;
+    width: 100%;
+    @include x-rem(font-size, 18px);
+  }
+
+  .calendar--content_container {
+    width: span(3 of 4 last);
+
+    @include respond-me(small) {
+      width: span(5 of 6 last);
+    }
+
+    @include respond-me(mobile) {
+      width: span(10 of 12 last);
+    }
+
+    display: inline;
+    float: right;
+    @include x-rem(padding, 8px 0);
+  }
+
+  .calendar--content {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .calendar--content_wrap {
+    display: inline-block;
+    width: 100%;
+    line-height: 1.5;
+  }
+
+}
+
+//
+// EOF
+//

@@ -1,0 +1,23 @@
+///////////////////////////////////////////////////////////////////////////////
+// typography
+///////////////////////////////////////////////////////////////////////////////
+
+@include web_font('LucidaSansRegular', 'lsans-webfont', 'lsans');
+
+h1 {
+  font-size: 22px;
+  font-family: "LucidaSansRegular", $base-font-family;
+  margin-bottom: 0.5em;
+  color: $header-color;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: "LucidaSansRegular", $base-font-family;
+  font-size: 16px;
+  margin-bottom: 0.5em;
+  color: $header-color;
+}
+
+//
+// EOF
+//

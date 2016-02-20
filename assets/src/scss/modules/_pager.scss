@@ -1,0 +1,133 @@
+///////////////////////////////////////////////////////////////////////////////
+// pager
+///////////////////////////////////////////////////////////////////////////////
+
+.pager {
+  display: inline;
+  float: left;
+  width: 100%;
+  margin: 0;
+  @include x-rem(padding, 32px 0 16px 0);
+  border-bottom: 2px solid $border-color;
+  @include x-rem(font-size, 13px);
+
+  li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    @include x-rem(padding, 4px 0);
+    span {
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+
+  a:link {
+    text-decoration: none;
+    position: relative;
+  }
+
+  a:focus,
+  a:hover {
+  }
+
+  a:after,
+  a:before {
+    @include x-rem(width, 32px);
+  }
+
+  .pager--left {
+    text-align: left;
+  }
+
+  .pager--right {
+    text-align: right;
+  }
+
+  .pager--left,
+  .pager--right,
+  .pager--left-empty,
+  .pager--right-empty {
+    display: inline;
+    float: left;
+    width: 30%;
+
+    span {
+      display: inline;
+    }
+
+    @include respond-me(mobile) {
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .pager--center {
+    display: inline;
+    float: left;
+    text-align: center;
+    width: 40%;
+    @include respond-me(mobile) {
+      .txt {
+        display: none;
+      }
+    }
+  }
+
+  .pager--left a:before {
+    @extend %icon;
+    @include icon-content(icon-left-bold);
+    @include x-rem(width, 24px);
+    @include x-rem(margin-right, 4px);
+    top: 0;
+    color: $icon-color;
+  }
+
+  .pager--left a:focus:before,
+  .pager--left a:hover:before {
+    color: $icon-hover-color;
+    transition: all 0.3s ease;
+  }
+
+  .pager--center a:before {
+    position: absolute;
+    @extend %icon;
+    @include icon-content(icon-up-bold);
+    @include x-rem(top, -24px);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    color: $icon-color;
+  }
+
+  .pager--center a:focus:before,
+  .pager--center a:hover:before {
+    color: $icon-hover-color;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+  }
+
+  .pager--right a:after {
+    @extend %icon;
+    @include icon-content(icon-right-bold);
+    @include x-rem(width, 24px);
+    @include x-rem(margin-left, 4px);
+    color: $icon-color;
+  }
+
+  .pager--a right:focus:after,
+  .pager--right a:hover:after {
+    color: $icon-hover-color;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+  }
+
+}
+
+//
+// EOF
+//

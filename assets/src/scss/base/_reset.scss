@@ -1,0 +1,47 @@
+///////////////////////////////////////////////////////////////////////////////
+// reset
+///////////////////////////////////////////////////////////////////////////////
+
+select, input, textarea {
+  color: $font-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+a,
+a:visited,
+a:active {
+  color: $link-color;
+}
+
+a:hover {
+  color: $link-hover-color;
+  text-decoration: underline;
+}
+
+strong, th {
+  font-weight: bold;
+}
+
+small {
+  @include x-rem(font-size, 11px);
+}
+
+input:valid, textarea:valid {
+}
+
+input:invalid, textarea:invalid {
+  border-radius: 1px;
+  box-shadow: 0 0 5px 0 red;
+}
+
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid {
+
+}
+
+//
+// EOF
+//

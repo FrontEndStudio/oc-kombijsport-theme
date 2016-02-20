@@ -1,0 +1,36 @@
+///////////////////////////////////////////////////////////////////////////////
+// owl
+///////////////////////////////////////////////////////////////////////////////
+
+//$color-base:      #4DC7A0;
+//$color-white:     #FFF;
+//$color-gray:      #D6D6D6;
+
+//nav
+
+$nav-color:               #fff;
+$nav-color-hover:         #fff;
+$nav-font-size:           14px;
+$nav-rounded:             3px;
+$nav-margin:              5px;
+$nav-padding:             4px 7px;
+$nav-background:          $nav-default-color;
+$nav-background-hover:    $nav-active-color;
+$nav-disabled-opacity:    0.5;
+
+//dots
+
+$dot-width:               10px;
+$dot-height:              10px;
+$dot-rounded:             30px;
+$dot-margin:              5px 7px;
+$dot-background:          $icon-color;
+$dot-background-active:   $icon-hover-color;
+
+@import 'owl/owl.carousel';
+@import 'owl/mixins';
+@import 'owl/theme';
+
+//
+// EOF
+//

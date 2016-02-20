@@ -1,0 +1,165 @@
+///////////////////////////////////////////////////////////////////////////////
+// table
+///////////////////////////////////////////////////////////////////////////////
+
+table {
+  width: 100%;
+  @include x-rem(margin-bottom, 18px);
+  padding: 0;
+  @include x-rem(font-size, 13px);
+  border-collapse: collapse;
+  background-color: $bg-hl-color;
+}
+
+table th, tr {
+  width: 100%;
+}
+
+
+table th, table td {
+  @include x-rem(padding, 10px 10px 9px);
+  line-height: 1.125;
+  text-align: left;
+}
+
+table th {
+  @include x-rem(padding-top, 9px);
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+table td {
+  vertical-align: top;
+  border-top: 1px solid $bg-color;
+}
+
+table tbody th {
+  border-top: 1px solid $bg-color;
+  vertical-align: top;
+}
+
+.condensed-table th, .condensed-table td {
+  @include x-rem(padding, 5px 5px 4px);
+}
+
+.bordered-table {
+  border: 1px solid $bg-color;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  @include x-rem(border-radius, 4px);
+  th + th,
+  td + td,
+  th + td {
+    border-left: 1px solid $bg-color;
+  }
+  thead tr:first-child th:first-child,
+  tbody tr:first-child td:first-child {
+    @include x-rem(border-radius, 4px 0 0 0);
+  }
+  thead tr:first-child th:last-child,
+  tbody tr:first-child td:last-child {
+    @include x-rem(border-radius, 0 4px 0 0);
+  }
+  tbody tr:last-child td:first-child {
+    @include x-rem(border-radius, 0 0 0 4px);
+  }
+  tbody tr:last-child td:last-child {
+    @include x-rem(border-radius, 0 0 4px 0);
+  }
+}
+
+table .span1 {
+  width: (100%/7) * 1;
+}
+
+table .span2 {
+  width: (100%/7) * 2;
+}
+
+table .span3 {
+  width: (100%/7) * 3;
+}
+
+table .span4 {
+  width: (100%/7) * 4;
+}
+
+table .span5 {
+  width: (100%/7) * 5;
+}
+
+table .span6 {
+  width: (100%/7) * 6;
+}
+
+table .span7 {
+  width: (100%/7) * 7;
+}
+
+table .full {
+  width: 100%;
+}
+
+.zebra-striped tbody tr:nth-child(odd) td,
+.zebra-striped tbody tr:nth-child(odd) th {
+  background-color: $bg-hl-color;
+}
+
+.zebra-striped tbody tr:hover td,
+.zebra-striped tbody tr:hover th {
+  background-color: lighten($bg-hl-color, 50%);
+}
+
+table .header {
+  cursor: pointer;
+}
+
+table .header:after {
+  content: "";
+  float: right;
+  @include x-rem(margin-top, 7px);
+  @include x-rem(border-width, 0 4px 4px);
+  border-style: solid;
+  border-color: $font-color transparent;
+  visibility: hidden;
+}
+
+table .headerSortUp, table .headerSortDown {
+  background-color: rgba(141, 192, 219, 0.25);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+table .header:hover:after {
+  visibility: visible;
+}
+
+table .headerSortDown:after,
+table .headerSortDown:focus:after,
+table .headerSortDown:hover:after {
+  visibility: visible;
+  opacity: 0.6;
+}
+
+table .headerSortUp:after {
+  border-bottom: none;
+  border-left: 0.25em solid transparent;
+  border-right: 0.25em solid transparent;
+  border-top: 0.25em solid $font-color;
+  visibility: visible;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+table .blue {
+  color: #049cdb;
+  border-bottom-color: $bg-color;
+}
+
+table .headerSortUp.blue,
+table .headerSortDown.blue {
+  background-color: $bg-hl-color;
+}
+
+//
+// EOF
+//

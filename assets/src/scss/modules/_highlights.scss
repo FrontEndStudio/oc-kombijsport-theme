@@ -1,0 +1,100 @@
+///////////////////////////////////////////////////////////////////////////////
+// highlights
+///////////////////////////////////////////////////////////////////////////////
+
+.highlights-container {
+  display: inline;
+  float: left;
+  width: 100%;
+  @include x-rem(margin-top, 16px);
+  padding: 0;
+}
+
+.highlights--row {
+  display: inline;
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid $border-color;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+}
+
+.highlights--item {
+
+  @include span(6 of 12);
+
+  &:nth-of-type(2n+0) {
+    margin-right: 0;
+  }
+
+  @include respond-me(small) {
+    @include span(12 of 12);
+  }
+
+  display: table-cell;
+  height: 100%;
+
+  @include x-rem(font-size, 14px);
+  color: $font-color;
+  @include x-rem(padding-bottom, 8px);
+  @include x-rem(margin-bottom, 8px);
+
+  @include respond-me(small) {
+    border-bottom: 1px solid $border-color;
+
+    &:last-child {
+      border: none;
+    }
+
+  }
+
+}
+
+.highlights--header {
+  font-family: "LucidaSansRegular", $base-font-family;
+  @include x-rem(font-size, 16px);
+  color: $header-color;
+  a:focus,
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.highlights--content {
+
+  a {
+    text-decoration: none;
+    color: $font-color;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+
+  }
+
+}
+
+.highlights--image-outer {
+  display: inline;
+  float: right;
+  width: 33% - gutter();
+  margin-left: gutter();
+  margin-bottom: gutter();
+}
+
+.highlights--image-inner {
+  @include maintain_ratio(220 165);
+  background-size: cover;
+  background-position: center center;
+  background-color: $background-color;
+}
+
+//
+// EOF
+//

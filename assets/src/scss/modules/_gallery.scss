@@ -1,0 +1,122 @@
+///////////////////////////////////////////////////////////////////////////////
+// gallery_small, gallery_overview
+///////////////////////////////////////////////////////////////////////////////
+
+.gallery_small,
+.gallery_overview {
+  @include span(12 of 12 last);
+  @include x-rem(margin-top, 8px);
+
+  .gallery-outer {
+    @include span(2 of 12);
+    background-size: cover;
+    background-position: center center;
+    background-color: $bg-color;
+    overflow: hidden;
+    margin-bottom: gutter();
+
+    @include respond-me('not_small') {
+      a:nth-of-type(6n+6),
+      &:nth-of-type(6n+6) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include respond-me('small_only') {
+    .gallery-outer {
+      @include span(4 of 12);
+      a:nth-of-type(3n+3),
+      &:nth-of-type(3n+3) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include respond-me('mobile_only') {
+    .gallery-outer {
+      @include span(6 of 12);
+      a:nth-of-type(2n+2),
+      &:nth-of-type(2n+2) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @include respond-me('small_mobile') {
+    .gallery-outer {
+      @include span(12 of 12 last);
+    }
+  }
+
+  .gallery-outer {
+    &:focus,
+    &:hover {
+    }
+  }
+
+  .gallery-inner {
+    position: relative;
+    @include maintain_ratio(220 165);
+    background: none;
+    box-shadow: inset 0px 0px 0px 1px rgba($border-color, 1.0);
+
+    &:focus,
+    &:hover {
+      box-shadow: inset 0px 0px 0px 2px $header-color;
+      background: rgba($bg-hl-color, 1.0);
+      background-position: center center;
+      opacity: 0.85;
+    }
+
+  }
+
+  .gallery-text {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include x-rem(padding, 16px 6px);
+    color: $link-color;
+    @include x-rem(font-size, 12px);
+    text-align: center;
+    overflow: hidden;
+    opacity: 0;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+      text-decoration: underline;
+      transition: all 0.3s ease;
+    }
+
+  }
+
+}
+
+.gallery_small {
+  .gallery-inner {
+    &:focus,
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.owl-item {
+
+  .gallery-inner {
+    box-shadow: none;
+  }
+
+  .gallery-outer {
+    width: 100%;
+  }
+}
+
+
+//
+// EOF
+//

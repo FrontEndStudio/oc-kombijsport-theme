@@ -1,0 +1,32 @@
+{
+  "name": "kombijsport",
+  "description": "Template for kombijsport",
+  "main": "gulpfile.js",
+  "authors": [
+    "Arnoud van Susteren <arnoud@frontendstudio.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "modernizr": "^3.3.1",
+    "jquery-cycle2": "^2.1.6",
+    "jquery": "^2.2.0",
+    "modularized-normalize-scss": "^3.0.3",
+    "owl.carousel": "owl-carousel2#^2.0.0-beta.3",
+    "jquery-touchswipe": "^1.6.15",
+    "fancybox": "^2.1.5",
+    "susy": "^2.2.12"
+  },
+  "dependencies": {
+    "modularized-normalize-scss": "^3.0.3"
+  }
+}

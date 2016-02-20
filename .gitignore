@@ -1,7 +1,8 @@
-./assets/js/*.*
-./assets/js/vendor/*.*
-./assets/src/js/plugins/*.*
-./assets/src/js/vendor/*.*
-./css/*.css
+assets/js/*.*
+assets/js/vendor/*.*
+assets/src/js/plugins/*.*
+assets/src/js/vendor/*.*
+css/*.css
 bower_components
 node_modules
+

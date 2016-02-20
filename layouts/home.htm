@@ -1,0 +1,35 @@
+description = "Kombijsport home"
+
+[staticPage]
+
+[staticMenu navigation]
+code = "navigation"
+==
+{% partial "header" %}
+
+<div class="headlines_large" role="complementary">
+    <ul>
+        <li>news_summary</li>
+    </ul>
+</div>
+
+<div class="slideshow">
+    <pre>slider</pre>
+</div>
+
+{% content %}
+
+<div class="calendar-outer">
+    <h2>Verjaardagen</h2>
+    <div class="calendar-inner"><pre>verjaardagen</pre></div>
+</div>
+
+<pre>aankondigingen</pre>
+
+<div class="spacer"></div>
+
+<div id="gallery_overview" class="gallery_overview">
+    <pre>gallery_overzicht</pre>
+</div>
+
+{% partial "footer" %}

@@ -1,0 +1,74 @@
+///////////////////////////////////////////////////////////////////////////////
+// search
+///////////////////////////////////////////////////////////////////////////////
+
+.search-outer {
+  display: inline;
+  float: right;
+  width: span(10 of 12 last);
+  padding: 0;
+  @include x-rem(margin, 16px 0);
+
+  @include respond-me(small) {
+    width: span(12 of 12 last);
+  }
+
+}
+
+.search-inner {
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  @include x-rem(margin-top, 8px);
+  @include x-rem(margin-bottom, 8px);
+}
+
+
+input[type="text"],
+input[type="search"],
+.search--input {
+  display: inline;
+  float: right;
+  margin: 0 auto;
+  text-align: left;
+  border: 1px solid $border-color;
+  @include x-rem(padding, 4px 6px);
+  outline: 0;
+  @include x-rem(font-size, 13px);
+  color: $font-color;
+  width: 250px;
+
+  @include respond-me(small) {
+    width: 85%;
+  }
+
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.search--button {
+  display: inline;
+  float: right;
+  margin: 0;
+  @include x-rem(padding, 5px 5px);
+  @include x-rem(font-size, 13px);
+  color: #FFFFFF;
+  background-color: $nav-default-color;
+
+  &:hover,
+  &:focus {
+    background-color: $nav-hover-color;
+  }
+
+  border: none;
+
+  @include respond-me(small) {
+    width: 10%;
+  }
+
+}
+
+//
+// EOF
+//

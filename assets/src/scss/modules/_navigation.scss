@@ -1,0 +1,259 @@
+///////////////////////////////////////////////////////////////////////////////
+// navigation
+///////////////////////////////////////////////////////////////////////////////
+
+.row--navigation {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: mix($gradient-dark-color, $gradient-light-color);
+  background: linear-gradient($gradient-light-color, $gradient-dark-color);
+  line-height: 1;
+  @include respond-me(navigation) {
+    height: 2.35em;
+  }
+}
+
+// navigation styles
+
+#js_navigation {
+  display: table;
+  width: auto;
+  margin: 0 auto;
+  padding: 0;
+
+  @include respond-me(navigation) {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    transition: all 0.5s ease;
+  }
+
+}
+
+#js_navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 999;
+
+  @include respond-me(navigation) {
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+  }
+
+  li {
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+    @include x-rem(font-size, 14px);
+    line-height: 1;
+    font-family: "LucidaSansRegular", $base-font-family;
+    z-index: 950;
+
+    cursor: pointer;
+    cursor: hand;
+
+    @include respond-me(navigation) {
+      float: none;
+    }
+
+    a {
+      display: block;
+      padding: $nav-vertical-padding $nav-horizontal-padding;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      border-right: 1px solid $border-color;
+      background: none;
+      transition: all 0.1s ease;
+
+      &:focus,
+      &:hover {
+        color: white;
+        background: $nav-hover-color;
+        transition: all 0.2s ease;
+      }
+
+      &.home_selected,
+      &.selected {
+
+        a {
+          background: $nav-active-color;
+        }
+
+      }
+
+      @include respond-me(navigation) {
+        display: table;
+        width: 100%;
+        margin: 0;
+        padding: 15px 2px;
+        border-top: 1px solid $border-color;
+        color: white;
+        background: mix($gradient-dark-color, $gradient-light-color);
+      }
+
+    }
+
+    &:focus ul,
+    &:hover ul {
+      opacity: 1;
+      max-height: 1000px;
+      transition: all 0.3s ease;
+
+      @include respond-me(navigation) {
+        max-height: 0;
+      }
+    }
+
+    // subnav
+
+    ul {
+      position: absolute;
+      list-style: none;
+      padding: 0;
+      @include x-rem(width, 200px);
+      max-height: 0;
+      z-index: 900;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+
+      @include respond-me(navigation) {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 1;
+        transition: all 2s ease;
+      }
+
+      li {
+        float: none;
+        margin: 0;
+        @include x-rem(font-size, 12px);
+        line-height: 1.25;
+        font-family: "LucidaSansRegular", $base-font-family;
+
+        cursor: pointer;
+        cursor: hand;
+
+        a {
+          display: block;
+          text-align: left;
+          padding: $nav-vertical-padding*2 $nav-horizontal-padding*1.25;
+          margin: 0;
+          border-right: none;
+          border-top: 1px solid $border-color;
+          transition: all 0.2s ease;
+          background: $gradient-dark-color;
+
+          &:focus,
+          &:hover {
+            background: lighten($nav-hover-color, 5%);
+            transition: all 0.5s ease;
+          }
+
+          @include respond-me(navigation) {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  } // #js_navigation
+
+  // mobile nav
+
+  .mobile {
+    display: none;
+    float: right;
+    width: auto;
+    margin: 0;
+    @include x-rem(padding, $nav-vertical-padding*2 $nav-horizontal-padding*1.25);
+    color: white;
+    text-decoration: none;
+    line-height: 0;
+    text-align: right;
+    z-index: 999;
+
+    cursor: pointer;
+    cursor: hand;
+
+    &:focus,
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+
+    @include respond-me(navigation) {
+      display: inline;
+    }
+  }
+
+  .mobile [class^="icon-"]:before,
+  .mobile [class*=" icon-"]:before  {
+    line-height: 0;
+  }
+
+  .is_active {
+    max-height: 9000px !important;
+    transition: all 1s ease;
+  }
+
+  @include respond-me(navigation) {
+
+    .arrow {
+      display: block;
+      float: right;
+      position: absolute;
+      top: 13px;
+      @include x-rem(right, $nav-horizontal-padding*1.25);
+      width: 20px;
+      height: 20px;
+      background: url('../img/svg/arrow.svg') no-repeat;
+      background-position: center center;
+      background-size: cover;
+      transition: all 0.3s ease;
+
+      &:focus,
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .no-svg .arrow {
+      background: url('../img/png/arrow.png') no-repeat;
+    }
+
+    .rotate {
+      transition: all 0.3s ease;
+      transform: rotate(-180deg);
+    }
+  }
+
+  #js_navigation ul li.home_selected a,
+  #js_navigation ul li.selected a {
+    background-color: $nav-active-color !important;
+  }
+
+  #js_navigation ul li.home_selected ul li a,
+  #js_navigation ul li.selected ul li a {
+    background-color: $gradient-dark-color !important;
+
+    &:hover,
+    &:focus {
+      background-color: lighten($nav-hover-color, 5%) !important;
+    }
+
+  }
+
+  //
+  // EOF
+  //

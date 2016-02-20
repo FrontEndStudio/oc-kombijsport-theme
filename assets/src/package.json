@@ -1,0 +1,25 @@
+{
+  "name": "kombijsport",
+  "version": "1.0.0",
+  "description": "Template for kombijsport",
+  "proxy": "hardlopen.biesheuvel.lan",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
+  },
+  "author": "Arnoud van Susteren <arnoud@frontendstudio.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "browser-sync": "^2.11.1",
+    "css-mqpacker": "^4.0.0",
+    "csswring": "^4.2.1",
+    "fs": "0.0.2",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^6.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-watch": "^4.3.5"
+  }
+}
