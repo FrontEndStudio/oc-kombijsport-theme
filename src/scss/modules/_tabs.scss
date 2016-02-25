@@ -86,7 +86,7 @@ nav.tab-pager {
 
       &.tab-pager--left a:before {
         @extend %icon;
-        @include icon-content(icon-left-bold);
+        @include icon-content(icon-arrow-left);
         @include x-rem(width, 24px);
         @include x-rem(margin-right, 4px);
         top: 0;
@@ -119,7 +119,7 @@ nav.tab-pager {
 
       &.tab-pager--right a:after {
         @extend %icon;
-        @include icon-content(icon-right-bold);
+        @include icon-content(icon-arrow-right);
         @include x-rem(width, 24px);
         @include x-rem(margin-left, 4px);
         color: $icon-color;

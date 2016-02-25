@@ -1,4 +1,6 @@
 assets
+src/fonts/icon-custom/
+src/scss/base/_icon.scss
 bower_components
 node_modules
 

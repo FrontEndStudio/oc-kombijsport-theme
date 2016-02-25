@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var del = require('del');
 var copy = require('gulp-copy');
 var sass = require('gulp-sass');
@@ -24,6 +25,8 @@ var jshint = require('gulp-jshint');
 var map = require('map-stream');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var iconfont = require('gulp-iconfont');
+var iconfontcss = require('gulp-iconfont-css');
 
 var banner = ['/**',
   ' * <%= pkg.name %>',
@@ -45,6 +48,7 @@ var DST_ROOT = __dirname + '/assets';
 var SRC_PATH = {
   bower: ROOT + '/bower_components',
   fonts: SRC_ROOT + '/fonts',
+  icons: SRC_ROOT + '/icons',
   img: SRC_ROOT + '/img',
   js: SRC_ROOT + '/js',
   scss: SRC_ROOT + '/scss'
@@ -52,10 +56,13 @@ var SRC_PATH = {
 
 var DST_PATH = {
   css: DST_ROOT + '/css',
-  fonts: DST_ROOT + '/fonts',
+  fonts: DST_ROOT + '/css/fonts',
+  icons: DST_ROOT + '/icons',
   img: DST_ROOT + '/img',
   js: DST_ROOT + '/js'
 };
+
+var runTimestamp = Math.round(Date.now()/1000);
 
 ///////////////////////////////////////////////////////////////////////////////
 // tasks
@@ -117,10 +124,10 @@ gulp.task('build-js', function() { 
   // plugins
   process.chdir(SRC_PATH.bower);
   gulp.src([
+      './jquery-cycle2/build/jquery.cycle2.js',
       './jquery-cycle2/src/jquery.cycle2.caption2.js',
       './jquery-cycle2/src/jquery.cycle2.scrollVert.js',
       './jquery-cycle2/src/jquery.cycle2.swipe.js',
-      './jquery-cycle2/build/jquery.cycle2.js',
       './owl.carousel/dist/owl.carousel.js'
     ]) 
   .pipe(concat('plugins.js'))
@@ -146,6 +153,27 @@ gulp.task('build-js', function() { 
 
   // modernizr will be build via: ~ grunt modernizr
 
+});
+
+gulp.task('icons', function () {
+    gulp.src(SRC_PATH.icons + '/*.svg')
+    .pipe(iconfontcss({
+        fontName: 'icon-custom',
+        fontPath: '/fonts/',
+        path: SRC_PATH.scss + '/templates/_icon.tmpl',
+        targetPath: '../../scss/base/_icon.scss',
+        appendUnicode: true
+    }))
+    .pipe(iconfont({
+        fontName: 'icon-custom',
+        normalize: true,
+        formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'],
+        timestamp: runTimestamp
+    }))
+    .on('glyphs', function (glyphs, options) {
+        gutil.log.bind(glyphs, options);
+    })
+    .pipe(gulp.dest(SRC_PATH.fonts + '/icon-custom/'));
 });
 
 gulp.task('serve', function() {
@@ -186,8 +214,7 @@ gulp.task('prepost', function() {
     .pipe(sync.stream());
 });
 
-gulp.task('init', ['clean']);
-gulp.task('default', ['jshint', 'build-js', 'prepost', 'serve']);
+gulp.task('build', ['copy', 'jshint', 'build-js', 'prepost']);
 
 //
 // EOF

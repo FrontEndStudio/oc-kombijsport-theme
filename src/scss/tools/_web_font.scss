@@ -17,7 +17,7 @@ Here with real values:
 */
 
 @mixin web_font($style-name, $file, $family, $category:"") {
-  $filepath: "fonts/" + $family + "/" + $file;
+  $filepath: "./fonts/" + $family + "/" + $file;
 
   @font-face {
     font-family: "#{$style-name}";

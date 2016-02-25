@@ -80,7 +80,7 @@
 
   .pager--left a:before {
     @extend %icon;
-    @include icon-content(icon-left-bold);
+    @include icon-content(icon-arrow-left);
     @include x-rem(width, 24px);
     @include x-rem(margin-right, 4px);
     top: 0;
@@ -96,7 +96,7 @@
   .pager--center a:before {
     position: absolute;
     @extend %icon;
-    @include icon-content(icon-up-bold);
+    @include icon-content(icon-arrow-up);
     @include x-rem(top, -24px);
     margin-left: 0;
     margin-right: 0;
@@ -113,7 +113,7 @@
 
   .pager--right a:after {
     @extend %icon;
-    @include icon-content(icon-right-bold);
+    @include icon-content(icon-arrow-right);
     @include x-rem(width, 24px);
     @include x-rem(margin-left, 4px);
     color: $icon-color;
