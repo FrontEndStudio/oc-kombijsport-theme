@@ -2,6 +2,7 @@
   "name": "kombijsport",
   "version": "1.0.0",
   "description": "Template for kombijsport",
+  "homepage": "http://www.kombijsport.nl",
   "proxy": "hardlopen.biesheuvel.lan",
   "main": "gulpfile.js",
   "scripts": {
@@ -16,17 +17,22 @@
     "browser-sync": "^2.11.1",
     "css-mqpacker": "^4.0.0",
     "csswring": "^4.2.1",
+    "del": "^2.2.0",
     "fs": "0.0.2",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-copy": "^0.8.2",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^0.11.1",
-    "grunt-contrib-watch": "^0.6.1",
     "grunt-modernizr": "^1.0.2",
     "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "0.0.2",
+    "gulp-header": "^1.7.1",
+    "gulp-jshint": "^2.0.0",
     "gulp-postcss": "^6.1.0",
     "gulp-sass": "^2.2.0",
-    "gulp-watch": "^4.3.5"
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.1",
+    "map-stream": "0.0.6"
   }
 }
