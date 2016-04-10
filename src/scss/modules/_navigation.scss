@@ -254,6 +254,17 @@
 
   }
 
+  #js_navigation ul li ul li.selected a {
+      background-color: $nav-active-color !important;
+
+        &:hover,
+        &:focus {
+            background-color: $nav-active-color !important;
+        }
+
+  }
+
+
   //
   // EOF
   //

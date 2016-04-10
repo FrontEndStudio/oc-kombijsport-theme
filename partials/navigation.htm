@@ -1,24 +1,50 @@
-<div class="row--navigation">
-  <a class="mobile" id="js_navigation_toggle"><i class="icon-sign-plus"></i></a>
-  <nav class="" id="js_navigation" role="navigation">
-    <ul>
-      {% for item in navigation.menuItems if not item.viewBag.isHidden %}
-        {% if loop.first %}
-          <li class="{{ item.isActive ? 'home_selected' : 'home' }}"><a href="{{ item.url }}" title="{{ item.title }}"><i class="icon-home"></i></a></li>
-        {% else %}
-          <li class="{{ item.isActive ? 'selected' : '' }} {{ item.isChildActive ? 'child-selected' : '' }} {{ item.viewBag.cssClass }}">
-          {% if item.url %}
-            <a href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }} title="{{ item.title }}">{{ item.title }}</a>
-          {% else %}
-            <span>{{ item.title }}</span>
-          {% endif %}
+[viewBag]
+snippetCode = "navigation"
+snippetName = "navigation"
 
-          {% if item.items %}
-            <ul>{% partial __SELF__ ~ "::items" items=item.items %}</ul>
-          {% endif %}
-          </li>
+[staticMenu navigation]
+code = "navigation"
+==
+
+{% component 'mainMenu' code='navigation' %}
+
+{% import _self as nav %}
+
+{% macro render_menu_level_second(items) %}
+    {% import _self as nav %}
+
+    {% for subitem in items %}
+        <li class="{{ subitem.isActive ? 'selected' : '' }}"><a href="{{ subitem.url }}" title="{{ subitem.title }}">{{ subitem.title }}</a></li>
+        {% if subitem.items %}
+            {{ nav.render_menu_level_second(subitem.items) }}
         {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
+    {% endfor %}
+{% endmacro %}
+
+{% macro render_menu_level_first(items) %}
+    {% import _self as nav %}
+
+    {% for item in items %}
+        {% if loop.first %}
+            <li class="{{ item.isActive ? 'home_selected' : 'home' }}"><a href="{{ item.url }}" title="{{ item.title }}"><i class="icon-home"></i></a></li>
+        {% else %}
+            <li class="{{ item.isActive ? 'selected' : '' }}{{ item.isChildActive ? 'selected' : '' }} {{ item.viewBag.cssClass }}"><a href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }} title="{{ item.title }}">{{ item.title }}</a>
+
+                {% if item.items %}
+                    <ul>{{ nav.render_menu_level_second(item.items) }}</ul>
+                {% endif %}
+            </li>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+<div class="row--navigation">
+    <a class="mobile" id="js_navigation_toggle"><i class="icon-sign-plus"></i></a>
+    <nav class="" id="js_navigation" role="navigation">
+        {% if navigation.menuItems %}
+            <ul>
+                {{ nav.render_menu_level_first(navigation.menuItems) }}
+            </ul>
+        {% endif %}
+    </nav>
 </div>
