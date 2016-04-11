@@ -1,0 +1,18 @@
+description = "Teaser description"
+
+[viewBag]
+snippetCode = "teaser"
+snippetName = "Teaser"
+snippetProperties[teaserHeader|type] = "string"
+snippetProperties[teaserHeader|title] = "Header"
+snippetProperties[teaserHeader|default] = "..."
+snippetProperties[teaserEmail|type] = "string"
+snippetProperties[teaserEmail|title] = "Email"
+snippetProperties[teaserEmail|default] = "..."
+==
+
+<a href="mailto:{{ teaserEmail }}">
+<div class="sign neutral">
+	<div class="header">{{ teaserHeader }}</div>
+	<div class="footer">{{ teaserEmail }}</div>
+</div></a>

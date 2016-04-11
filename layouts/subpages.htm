@@ -1,0 +1,53 @@
+description = "Kombijsport show subpages"
+
+[staticPage]
+==
+<?php
+use RainLab\Pages\Classes\Page;
+
+function onStart() {
+    $title = str_replace(' ', '-', strtolower($this->title));
+    $subpage = Page::find($title);
+    $this['pages'] = $subpage->getChildren();
+}
+?>
+==
+{% partial "header" %}
+
+<div class="content_left">
+    {% page %}
+
+    <ul class="tabs">
+        {% for page in pages %}
+            <li class=""><a href="#tab{{ loop.index0 }}">{{ page.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <div class="tabs_container">
+        {% for page in pages %}
+            <a name="tab{{ loop.index0 }}"></a>
+            <h3 class="tab_heading"><a href="#tab{{ loop.index0 }}">{{ page.title }}</a></h3>
+
+            <div id="tab{{ loop.index0 }}" class="tab_content">
+                {{ page.getProcessedMarkup() | raw }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <nav class="tab-pager">
+        <ul>
+            <li class="tab-pager--left"><a href="#tab3"><span>Vorige</span></a></li>
+            {% for page in pages %}
+                <li class="tab-pager--num"><a href="#tab{{ loop.index0 }}">{{ loop.index }}</a></li>
+            {% endfor %}
+            <li class="tab-pager--right"><a href="#tab1"><span>Volgende</span></a></li>
+        </ul>
+    </nav>
+
+</div>
+
+<div class="content_right">
+    {% placeholder right title="Content Right" %}
+</div>
+
+{% partial "footer" %}
