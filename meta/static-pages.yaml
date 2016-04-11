@@ -1,9 +1,27 @@
 static-pages:
     startpagina: {  }
     verslagen: {  }
-    organisatie: {  }
-    lid-worden-en-opzeggen: {  }
-    overige-informatie: {  }
+    organisatie:
+        organisatie-algemene-ledenvergadering: {  }
+        organisatie-bestuur: {  }
+        organisatie-trainers-en-trainingstijden: {  }
+        organisatie-commissies: {  }
+        organisatie-historie-kombij: {  }
+        organisatie-statuten: {  }
+    lid-worden-en-opzeggen:
+        lid-worden-en-opzeggen-lid-worden: {  }
+        lid-worden-en-opzeggen-wedstrijdlicentie: {  }
+        lid-worden-en-opzeggen-opzeggen: {  }
+        lid-worden-en-opzeggen-atletiekjeugd: {  }
+    overige-informatie:
+        overige-informatie-accommodatie-en-adres: {  }
+        overige-informatie-adverteren: {  }
+        overige-informatie-baan-en-terreinonderhoud: {  }
+        overige-informatie-baanregels: {  }
+        overige-informatie-clubkleding: {  }
+        overige-informatie-evenementen: {  }
+        overige-informatie-huren-baan-zaal-kantine: {  }
+        overige-informatie-records: {  }
     loopbokaal: {  }
     fotoalbum: {  }
     contact: {  }
