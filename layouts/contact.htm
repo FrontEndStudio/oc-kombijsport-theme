@@ -1,0 +1,45 @@
+description = "Kombijsport contact"
+
+[staticPage]
+==
+<?php
+function onStart() {
+
+}
+?>
+==
+{% partial "header" %}
+
+<div class="content_left">
+    {% page %}
+</div>
+
+<div class="content_right">
+    {% placeholder right title="Content Right" %}
+
+    {% set contacts %}
+      {repeater name="r_contacts" prompt="More contacts" tab="Contacts" label="Contacts"}
+        {text name="title" label="Contact Title"}{/text}
+        {text name="email" label="Contact Email"}{/text}
+      {/repeater}
+    {% endset %}
+
+    {% for contact in r_contacts %}
+
+        {% if loop.first %}
+            <div class="headlines_small_no_hl">
+                <ul>
+        {% endif %}
+
+                    <li><span class="no_link">{{ contact.title }}</span><br /> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+
+        {% if loop.last %}
+                </ul>
+            </div>
+        {% endif %}
+
+    {% endfor %}
+
+</div>
+
+{% partial "footer" %}
