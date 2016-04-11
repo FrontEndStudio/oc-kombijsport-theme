@@ -1,15 +1,30 @@
+[viewBag]
+
+[weather]
+noRecordsMessage = "No records found"
+features = "forecast"
+settings = "lang:NL"
+query = "Netherlands/Amsterdam"
+format = "json"
+cache_time = 1800
+cache_key = 1
+
+[tickerList]
+sortColumn = "sort_order"
+sortDirection = "desc"
+==
 <!DOCTYPE html>
 <html class="no-js" lange="nl">
     <head>
         <title>{{ this.page.title }} - Kombijsport Atletiek Badhoevedorp</title>
         <meta charset="utf-8">
-        <meta name="description" content="{{ this.page.meta_description }}">
-        <meta name="title" content="{{ this.page.meta_title }}">
-        <meta name="robots" content="index,follow">
+        {% partial "seo" %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         {% styles %}
         <link href="{{ ['assets/css/style.css']|theme }}" rel="stylesheet">
         <script src="{{ ['assets/js/vendor/modernizr.js']|theme }}"></script>
+        {% scripts %}
     </head>
 <body>
 
@@ -20,8 +35,11 @@
     <header>
         <div class="banner" role="banner">
             <div class="logo"><a href="/" title="Home">Home</a></div>
-            <div class="ticker" id="js_ticker" data-cycle-swipe="true" data-cycle-fx="scrollVert" data-cycle-timeout="4000" data-cycle-log="false" data-cycle-prev="#js-ticker-prev" data-cycle-next="#js-ticker-next" data-cycle-slides="> span">
-            <span class="ticker--element" style="display: none;">De eerste tussenstand van de Loopbokaalcompetitie 2016 staat online.</span><span class="ticker--element" style="display: none;">De PR's zijn bijgewerkt  t/m 9 december 2015</span><span class="ticker--element" style="display: none;">Het reglement van de Loopbokaalcompetitie 2016 staat online en is te downloaden. </span><span class="ticker--element" style="display: none;">Het weer in Badhoevedorp: Regen en wind. Minimaal 8C.</span><span class="ticker--element" style="display: none;">Het is 20 February 2016 je kwam op deze pagina om: 16:07</span></div>
+            {% set weatherData %}
+                {% component 'weather' %}
+            {% endset %}
+
+            {% component 'tickerList' extraData=weatherData %}
 
             <div class="search" role="search">
                 <form id="cntnt01moduleform_1" method="post" action="http://www.kombijsport.nl/zoeken/" class="cms_form">

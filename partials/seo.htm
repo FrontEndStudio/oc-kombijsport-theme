@@ -1,0 +1,28 @@
+{% if viewBag.property("no_robots") %}
+    <meta name="robots" content="noindex,nofollow">
+{% else %}
+    <meta name="robots" content="index,follow">
+{% endif %}
+{% if post is defined %}
+    <meta name="title" content="{{ post.title }}">
+    <meta name="description" content="{{ post.title }}">
+    <link rel="canonical" href="{{ post.url }}">
+    <meta property="og:title" content="{{ post.title }}">
+    <meta property="og:url" content="{{ post.url }}">
+{% else %}
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta property="og:title" content={{ this.page.meta_title }}"">
+    {% if this.page.baseFileName != 404 %}
+<link rel="canonical" href="{{ url_current() }}">
+<meta property="og:url" content="{{ url_current() }}">
+    {% endif %}
+{% endif %}
+
+<meta property="og:site_name" content="Kombijsport Atletiek Badhoevedorp">
+<meta property="fb:app_id" content="491698674249308">
+<meta property="fb:admins" content="100001537008109">
+<meta property="fb:admins" content="100003240573482">
+<meta property="og:image" content="{{ 'assets/img/kombij_atletiek_logo.png' | theme }}">
+<meta property="og:image:width" content="280">
+<meta property="og:image:height" content="280">
