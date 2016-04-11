@@ -1,0 +1,21 @@
+description = "Kombijsport two column (content)"
+
+[staticPage]
+==
+<?php
+function onStart() {
+
+}
+?>
+==
+{% partial "header" %}
+
+<div class="content_left">
+    {% page %}
+</div>
+
+<div class="content_right">
+    {% placeholder right title="Content Right" %}
+</div>
+
+{% partial "footer" %}
