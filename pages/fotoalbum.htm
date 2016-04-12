@@ -2,8 +2,8 @@ title = "Fotoalbum"
 url = "/fotoalbum/:slug/:id"
 layout = "full"
 is_hidden = 0
-meta_title = "Meta title Fotoalbum-detail"
-meta_description = "Meta description Fotoalbum-detail"
+meta_title = "Fotoalbum"
+meta_description = "Fotos van verschillende Kombijsport evenementen"
 
 [albumDetails]
 identifierValue = "{{ :id }}"
@@ -15,5 +15,14 @@ notFoundMessage = "Dit fotoalbum kan niet gevonden worden."
 inject_jquery = "no"
 inject_js = "no"
 inject_css = "no"
+==
+<?php
+function onEnd()
+{
+    $this->page->title = $this['record']->name;
+    $this->page->meta_title = $this['record']->name;
+    $this->page->meta_description = "Fotos van de ". $this['record']->name;
+}
+?>
 ==
 {% component 'albumDetails' %}

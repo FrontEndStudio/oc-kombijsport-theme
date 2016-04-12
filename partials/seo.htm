@@ -12,7 +12,7 @@
 {% else %}
     <meta name="title" content="{{ this.page.meta_title }}">
     <meta name="description" content="{{ this.page.meta_description }}">
-    <meta property="og:title" content={{ this.page.meta_title }}"">
+    <meta property="og:title" content="{{ this.page.meta_title }}">
     {% if this.page.baseFileName != 404 %}
 <link rel="canonical" href="{{ url_current() }}">
 <meta property="og:url" content="{{ url_current() }}">
