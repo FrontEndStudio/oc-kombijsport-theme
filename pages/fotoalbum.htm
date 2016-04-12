@@ -1,0 +1,19 @@
+title = "Fotoalbum"
+url = "/fotoalbum/:slug/:id"
+layout = "full"
+is_hidden = 0
+meta_title = "Meta title Fotoalbum-detail"
+meta_description = "Meta description Fotoalbum-detail"
+
+[albumDetails]
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+detailsPage = "fotoalbum"
+sortColumn = "sort_order"
+sortDirection = "desc"
+notFoundMessage = "Dit fotoalbum kan niet gevonden worden."
+inject_jquery = "no"
+inject_js = "no"
+inject_css = "no"
+==
+{% component 'albumDetails' %}
